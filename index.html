@@ -4,10 +4,59 @@
     <title>Campus Complaint Manager</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Campus Complaint Manager</h1>
-    <p>Complaint Management System</p>
+    <div class="container">
+
+        <h1>Campus Complaint Manager</h1>
+        <p>Manage your campus complaints easily</p>
+
+        <div class="stats">
+            <div>
+                <h2 id="totalCount">0</h2>
+                <p>Total</p>
+            </div>
+
+            <div>
+                <h2 id="pendingCount">0</h2>
+                <p>Pending</p>
+            </div>
+
+            <div>
+                <h2 id="resolvedCount">0</h2>
+                <p>Resolved</p>
+            </div>
+        </div>
+
+        <div class="form-box">
+
+            <h2>Add Complaint</h2>
+
+            <input type="text" id="title" placeholder="Complaint title">
+
+            <input type="text" id="category" placeholder="Category">
+
+            <input type="text" id="location" placeholder="Location">
+
+            <textarea id="description" placeholder="Description"></textarea>
+
+            <button onclick="addComplaint()">Add Complaint</button>
+
+        </div>
+
+        <div class="complaint-box">
+
+            <h2>Complaints</h2>
+
+            <input type="text" id="search" placeholder="Search complaint..." oninput="displayComplaints()">
+
+            <div id="complaintList"></div>
+
+        </div>
+
+    </div>
+
     <script src="script.js"></script>
 
 </body>

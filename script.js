@@ -49,11 +49,38 @@ function displayComplaints() {
                 <p>Location: ${complaint.location}</p>
                 <p>${complaint.description}</p>
                 <p>Status: ${complaint.status}</p>
+
+                <button onclick="resolveComplaint(${complaint.id})">
+                    Resolve
+                </button>
+
+                <button onclick="deleteComplaint(${complaint.id})">
+                    Delete
+                </button>
             </div>
         `;
     });
 
     updateStats();
+}
+
+function resolveComplaint(id) {
+    const complaint = complaints.find(function(complaint) {
+        return complaint.id === id;
+    });
+
+    if (complaint) {
+        complaint.status = "Resolved";
+        displayComplaints();
+    }
+}
+
+function deleteComplaint(id) {
+    complaints = complaints.filter(function(complaint) {
+        return complaint.id !== id;
+    });
+
+    displayComplaints();
 }
 
 function updateStats() {

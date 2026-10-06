@@ -1,63 +1,81 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-    <title>Campus Complaint Manager</title>
-    <link rel="stylesheet" href="style.css">
+<title>Campus Complaint Manager</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>Campus Complaint Manager</h1>
-        <p>Manage your campus complaints easily</p>
+<div class="top-bar">
+<h1 id="appTitle">Campus Complaint Manager</h1>
 
-        <div class="stats">
-            <div>
-                <h2 id="totalCount">0</h2>
-                <p>Total</p>
-            </div>
+<button class="language-btn" onclick="changeLanguage()" id="languageBtn">
+বাংলা
+</button>
+</div>
 
-            <div>
-                <h2 id="pendingCount">0</h2>
-                <p>Pending</p>
-            </div>
+<p id="appSubtitle">Manage your campus complaints easily</p>
 
-            <div>
-                <h2 id="resolvedCount">0</h2>
-                <p>Resolved</p>
-            </div>
-        </div>
+<div class="stats">
 
-        <div class="form-box">
+<div>
+<h2 id="totalCount">0</h2>
+<p id="totalLabel">Total</p>
+</div>
 
-            <h2>Add Complaint</h2>
+<div>
+<h2 id="pendingCount">0</h2>
+<p id="pendingLabel">Pending</p>
+</div>
 
-            <input type="text" id="title" placeholder="Complaint title">
+<div>
+<h2 id="resolvedCount">0</h2>
+<p id="resolvedLabel">Resolved</p>
+</div>
 
-            <input type="text" id="category" placeholder="Category">
+</div>
 
-            <input type="text" id="location" placeholder="Location">
+<div class="form-box">
 
-            <textarea id="description" placeholder="Description"></textarea>
+<h2 id="addTitle">Add Complaint</h2>
 
-            <button onclick="addComplaint()">Add Complaint</button>
+<input type="text" id="title" placeholder="Complaint title">
 
-        </div>
+<input type="text" id="category" placeholder="Category">
 
-        <div class="complaint-box">
+<input type="text" id="location" placeholder="Location">
 
-            <h2>Complaints</h2>
+<textarea id="description" placeholder="Description"></textarea>
 
-            <input type="text" id="search" placeholder="Search complaint..." oninput="displayComplaints()">
+<button onclick="addComplaint()" id="addButton">
+Add Complaint
+</button>
 
-            <div id="complaintList"></div>
+</div>
 
-        </div>
+<div class="complaint-box">
 
-    </div>
+<h2 id="complaintTitle">Complaints</h2>
 
-    <script src="script.js"></script>
+<input
+type="text"
+id="search"
+placeholder="Search complaint..."
+oninput="displayComplaints()"
+>
+
+<div id="complaintList"></div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>

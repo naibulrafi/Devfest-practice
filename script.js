@@ -1,4 +1,8 @@
-let complaints = [];
+let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
+
+function saveComplaints() {
+    localStorage.setItem("complaints", JSON.stringify(complaints));
+}
 
 function addComplaint() {
     const title = document.getElementById("title").value;
@@ -21,6 +25,7 @@ function addComplaint() {
     };
 
     complaints.push(complaint);
+    saveComplaints();
 
     document.getElementById("title").value = "";
     document.getElementById("category").value = "";
@@ -71,6 +76,7 @@ function resolveComplaint(id) {
 
     if (complaint) {
         complaint.status = "Resolved";
+        saveComplaints();
         displayComplaints();
     }
 }
@@ -80,6 +86,7 @@ function deleteComplaint(id) {
         return complaint.id !== id;
     });
 
+    saveComplaints();
     displayComplaints();
 }
 
